@@ -1,0 +1,15 @@
+[package]
+name = "actix"
+version = "0.1.0"
+authors = ["Ibrahim Sakr <ebrahimes@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+actix-web = "2.0"
+actix-rt = "1.0"
+listenfd = "0.3" # use for hot reloading
+env_logger="0.7.1" # use as a middleware to log all incomming requests
+
+# package cargo-cmd add support for running commands defined in Cargo.toml
+[package.metadata.commands]
+dev="RUST_LOG=info systemfd --no-pid -s http::3000 -- cargo watch -x run"
